@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1> El usuario logueado es: {{ usuariologueado.nombre }} {{ usuariologueado.apellido}} </h1> 
+
+{% for user in users  %}
+
+
+
+<h1>{{ user.nombre }} {{ user.apellido }}</h1>
+
+
+
+{% endfor %}
+
+
+{% endblock %}

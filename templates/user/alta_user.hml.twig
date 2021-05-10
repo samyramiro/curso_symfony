@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+<form action="alta_user">
+
+
+{#{%  TODOS LOS INPUTS DE NUESTRO FORMULARIO   %}#}
+<input id="nombre" name="nombre">
+</form>
+
+
+
+{#{{ include ('footer.html.twig') }}#}
+
+{{ parent() }}
+
+{% if valor == 1 %} 
+<h1>Hola Mundo 2</h1>
+{% endif %} 
+
+{#{%  for i in 0..20  %}
+    <h1> PRODUCTO {{i}} </h1>
+{% endfor %} #}
+
+<td>
+{% for rol in roles %}
+    <th>
+        <h1>{{rol}}</h1>
+    </th>
+{% endfor %}
+</td>
+{% endblock %}
+
+
+
+

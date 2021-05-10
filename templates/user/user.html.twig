@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+     {{ parent() }}
+     
+ {% endblock %}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ {% block javascripts %}
+     {{ parent() }}
+    
+    
+    <script>
+    
+       $(document).ready(function() {
+        $('body').prepend('<h1>HOLAAAAAAAAA</h1>');
+        });
+
+    </script>
+
+ {% endblock %}
+ 
