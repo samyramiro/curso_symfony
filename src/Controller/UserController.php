@@ -80,6 +80,7 @@ class UserController extends AbstractController{
         
         $em = $this->getDoctrine()->getManager();
         $email = "matias@hotmail.com";
+       
         $usuario = $em->getRepository(Usuario::class)->findOneBy(["id" => 1]);
         $usuario->setNombre("NOMBRE NUEVO");
         $usuario->setEmail($email);
@@ -90,27 +91,43 @@ class UserController extends AbstractController{
     }
 
     /**
-     * @Route("/validar",name="validar_user")
+     * @Route("/login",name="login_user")
      */
-    public function ValidarUser(Request $request){
+    public function LoginUser(Request $request){
         
-        $em = $this->getDoctrine()->getManager();
+      /*  $em = $this->getDoctrine()->getManager();
         
         $usuario = $em->getRepository(Usuario::class)->findOneBy(["id" => 1]);
         $usuario->setNombre("NOMBRE NUEVO");
         $usuario->setEmail($email);
         $em->flush();
         
-        return "Update User";
+        return "Update User";*/
+
+        return $this->render('login.html.twig');
 
     }
 
+     /**
+     * @Route("/validar",name="validar_user")
+     */
+    public function ValidarUser(Request $request){
+        
+        $em = $this->getDoctrine()->getManager();
+      
+        $email = $request->request->get('email');        
+        $password = $request->request->get('password');
 
+        $usuario = $em->getRepository(Usuario::class)->findOneBy(["email" => $email]);
+        $clave = $usuario->getPassword();
 
-
-    
-
-
+        if ($password==$clave) {            
+            return $this->render('user/list_user.html.twig',["usuariologueado" => $usuario,"estado" => "logueado"]);
+        }else{           
+            return $this->render('user/list_user.html.twig',["email" => $email, "usuariologueado" => $usuario, "estado" => "no logueado"]);
+        }
+        
+      }
     
 
 }

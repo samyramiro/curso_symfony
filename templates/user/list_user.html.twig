@@ -2,17 +2,22 @@
 
 {% block body %}
 
-<h1> El usuario logueado es: {{ usuariologueado.nombre }} {{ usuariologueado.apellido}} </h1> 
+<h1> El  estado del usuario es: {{ estado }}</h1> <br />
 
-{% for user in users  %}
-
-
-
-<h1>{{ user.nombre }} {{ user.apellido }}</h1>
+{% if estado == "logueado" %} 
+    <h1> Su nombre y apellido es: {{ usuariologueado.nombre }} {{ usuariologueado.apellido}} </h1>
+{% endif %} 
 
 
+{#{% for user in users  %}
 
-{% endfor %}
+
+
+<h1>{{ user.nombre }} {{ user.apellido }}</h1>#}
+
+
+
+{#% endfor %#}
 
 
 {% endblock %}
