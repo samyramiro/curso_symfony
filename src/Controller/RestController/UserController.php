@@ -71,9 +71,9 @@ class UserController extends AbstractFOSRestController{
         $clave = $usuario->getPassword();
 
         if ($password==$clave) {            
-            return $this->render('user/list_user.html.twig',["usuariologueado" => $usuario,"estado" => "logueado"]);
+            return $this->render('user/list_user.html.twig',["usuariologueado" => $usuario,"estado" => "AUTORIZADO"]);
         }else{           
-            return $this->render('user/list_user.html.twig',["email" => $email, "usuariologueado" => $usuario, "estado" => "no logueado"]);
+            return $this->render('user/list_user.html.twig',["estado" => "NO AUTORIZADO"]);
         }
         
       }

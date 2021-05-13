@@ -4,19 +4,13 @@
 
 <h1> El  estado del usuario es: {{ estado }}</h1> <br />
 
-{% if estado == "logueado" %} 
+{% if estado == "AUTORIZADO" %} 
     <h1> Su nombre y apellido es: {{ usuariologueado.nombre }} {{ usuariologueado.apellido}} </h1>
 {% endif %} 
 
 
 {#{% for user in users  %}
-
-
-
 <h1>{{ user.nombre }} {{ user.apellido }}</h1>#}
-
-
-
 {#% endfor %#}
 
 

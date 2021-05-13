@@ -109,7 +109,7 @@ class UserController extends AbstractController{
     }
 
      /**
-     * @Route("/validar",name="validar_user")
+     * @Route("/validarUser",name="validar_user")
      */
     public function ValidarUser(Request $request){
         
@@ -122,9 +122,9 @@ class UserController extends AbstractController{
         $clave = $usuario->getPassword();
 
         if ($password==$clave) {            
-            return $this->render('user/list_user.html.twig',["usuariologueado" => $usuario,"estado" => "logueado"]);
+            return $this->render('user/list_user.html.twig',["usuariologueado" => $usuario,"estado" => "AUTORIZADO"]);
         }else{           
-            return $this->render('user/list_user.html.twig',["email" => $email, "usuariologueado" => $usuario, "estado" => "no logueado"]);
+            return $this->render('user/list_user.html.twig',["estado" => "NO AUTORIZADO"]);
         }
         
       }
